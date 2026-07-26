@@ -15,6 +15,11 @@ namespace Clock
         public MainForm()
         {
             InitializeComponent();
+            this.Location = new Point
+                (
+                    Screen.PrimaryScreen.Bounds.Width - this.Width - 50,
+                    50
+                );
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -31,6 +36,8 @@ namespace Clock
                 );
             if (checkBoxShowDate.Checked)
                 labelTime.Text += $"\n{DateTime.Now.ToString("yyyy.MM.dd")}";
+            if (checkBoxShowWeekday.Checked)
+                labelTime.Text += $"\n{DateTime.Now.DayOfWeek}";
         }
     }
 }
